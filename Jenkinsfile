@@ -4,8 +4,8 @@ pipeline{
   stages{
     stage('Clone'){
       steps {
-        git branch: 'master'
-        url: '"
+        git branch: 'main'
+        url: 'https://github.com/shivamkalbande/Jenkins-CI-CD-with-GitHub-Integration.git'
       }
     }
      stage('Build'){
@@ -23,7 +23,7 @@ pipeline{
       stage('Package'){
         steps{
           sh ''
-          docker push yashpimple22/nodeapp:$(BUILD_NUMBER)
+          docker push shivamkalbande/nodeapp:$(BUILD_NUMBER)
           '''
       }
      }
