@@ -9,11 +9,13 @@ pipeline{
       }
     }
      stage('Build'){
-      steps{
-        sh ''
-        docker build -t nodeapp:${BUILD_NUMBER}
-      }
-     }
+   steps{
+       script {
+           docker.build("nodeapp:${BUILD_NUMBER}")
+       }
+   }
+}
+
      stage('Test'){
         steps{
           sh ''
